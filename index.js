@@ -62,6 +62,12 @@ app.get("/products/:id", async (req, res) => {
 ////////////
 //ENDPOINT//
 ////////////
+app.get("/dashboard", (req, res) => {
+    //Devolvemos una respuesta den texto plano desde la url "/dashboard" 
+    //Posteriormente desde esta url devolvemos una pagina HTML de la carpeta
+    res.send("Hola desde la raiz del TP");
+});
+
 app.get("/products", async (req, res) => {
     try {
         const sql = `SELECT * FROM products`;
