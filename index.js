@@ -78,9 +78,18 @@ app.get("/products", async (req, res) => {
 
         const [rows] = await connection.query(sql);
         console.log(rows);
+        
+        res.status(200).json({
+            payload: rows,
+            message: rows.length === 0? "no se encontraron productos" : "productos encontrados"
+        })
 
     } catch(error) {
         console.log(error);
+
+        res.status(500).json({
+            message:"Error"
+        })
     }
 });
 
