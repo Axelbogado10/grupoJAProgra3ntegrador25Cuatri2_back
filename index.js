@@ -1,14 +1,14 @@
 /*======================
     Importaciones
 ======================*/
-import express from "express"; // Importamos el framework Express
-const app = express(); // Inicializamos express en la variable app, que contendra todos los metodos
+import express from "express"; 
+const app = express(); 
 
-import connection from "./src/api/database/db.js"; // Importamos la conexion a la BBDD
-import environments from "./src/api/config/environments.js"; // Importamos las variables de entorno
+import connection from "./src/api/database/db.js"; 
+import environments from "./src/api/config/environments.js"; 
 const PORT = environments.port;
 
-import cors from "cors"; // Importamos el modulo CORS
+import cors from "cors"; 
 
 
 /*===================
