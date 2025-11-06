@@ -126,12 +126,12 @@ app.get("/products/:id", async (req, res) => {
         })
     }
 });
+////////////////////////////////////////////////////////////////////////////////////////
 
-
-///////////////////
-// CREATE -> POST
-// Crear producto
-app.post("/products", async (req, res) => {
+////////////
+//ENDPOINT//
+////////////
+app.get("/products", async (req, res) => {
     try {
         const { name, image, category, price } = req.body;
         // Aca imprimimos lo que enviamos desde el form que previamente se parseo gracias al middleware -> express.json()
@@ -232,7 +232,6 @@ app.delete("/products/:id", async (req, res) => {
         })
     }
 });
-
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
