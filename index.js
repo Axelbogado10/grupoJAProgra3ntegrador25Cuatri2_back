@@ -131,7 +131,7 @@ app.get("/products/:id", async (req, res) => {
 ////////////
 //ENDPOINT//
 ////////////
-app.get("/products", async (req, res) => {
+app.post("/products", async (req, res) => {
     try {
         const { name, image, category, price } = req.body;
         // Aca imprimimos lo que enviamos desde el form que previamente se parseo gracias al middleware -> express.json()
