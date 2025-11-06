@@ -93,6 +93,21 @@ app.get("/products", async (req, res) => {
     }
 });
 
+///Creación de producto
+app.post("/products", async (req, res)=>{
+    try {
+        
+    } catch (error) {
+        console.log("Error interno del servidor");
+        res.status(500).json({
+            message: "Error interno del servidor",
+            error: error.message
+        });
+    }
+});
+
+
+
 app.listen(PORT, () => {
     console.log(`servidor corriendo en el puerto ${PORT}`)
 })
