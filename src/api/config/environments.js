@@ -1,4 +1,3 @@
-// importamos el modulo dotenv
 import dotenv from "dotenv";
 
 dotenv.config(); // cargamos las variables de entorno.env
