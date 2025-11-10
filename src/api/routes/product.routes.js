@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     try {
         
      
-        const sql = `SELECT * FROM products`;
+        const sql = `SELECT * FROM productos`;
         const [rows] = await connection.query(sql);
         
         res.status(200).json({
@@ -34,21 +34,19 @@ router.get("/:id", validateId, async (req, res) => {
         // el :id se extrae con el objeto request -> req.params.id
         let { id } = req.params; // Esto nos permite obtener el valor numerico despues de products /products/2
 
-        /* Pasamos a definir el middleware validateId
-        // Optimizacion 1: Validacion de parametros antes de acceder a la BBDD para evitar hacer una query si el id no es valido
-        // Esta logica luego la hara un middleware validateId -> para EVITAR tener que repetir este codigo 
+
         if(!id || isNaN(Number(id))) {
             return res.status(400).json({
                 message: "El id del producto debe ser un numero valido"
             });
         }
-        */
+        
         /* Si enviara este valor con post, lo recogeria asi:
         let { id } = req.body;
         */
 
         // Los ? representan los placeholders, se usan por temas de seguridad para prevenir inyecciones SQL
-        let sql = `SELECT * FROM products where id = ?`;
+        let sql = `SELECT * FROM productos where id = ?`;
         const [rows] = await connection.query(sql, [id]); // El id reemplaza nuestro ?
 
 
@@ -95,7 +93,7 @@ router.post("/", async (req, res) => {
         }
 
         // Los placeholders ?, evitan inyecciones SQL para evitar ataques de este tipo
-        let sql = "INSERT INTO products (name, image, category, price) VALUES (?, ?, ?, ?)";
+        let sql = "INSERT INTO productos (name, image, category, price) VALUES (?, ?, ?, ?)";
 
         // Le enviamos estos valores a la BBDD
         let [rows] = await connection.query(sql, [name, image, category, price]);
@@ -140,7 +138,7 @@ router.put("/", async (req, res) => {
         }
 
         let sql = `
-            UPDATE products
+            UPDATE productos
             SET name = ?, image = ?, price = ?, category = ?
             WHERE id = ?
         `;
@@ -179,7 +177,7 @@ router.delete("/:id", validateId, async (req, res) => {
         let { id } = req.params;
 
         // Opcion 1: Borrado normal
-        let sql = `DELETE FROM products WHERE id = ?`;
+        let sql = `DELETE FROM productos WHERE id = ?`;
 
         // Opcion 2: Baja logica
         // let sql2 = "UPDATE products set active = 0 WHERE id = ?";

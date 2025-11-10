@@ -32,6 +32,7 @@ app.use(loggerUrl);
 ======================*/
 app.use("/api/products", productRoutes)
 
+app.use("/uploads", express.static("./src/uploads"));
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
