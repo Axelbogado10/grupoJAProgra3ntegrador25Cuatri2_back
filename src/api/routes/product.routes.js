@@ -93,7 +93,7 @@ router.post("/", async (req, res) => {
         }
 
         // Los placeholders ?, evitan inyecciones SQL para evitar ataques de este tipo
-        let sql = "INSERT INTO productos (name, image, category, price) VALUES (?, ?, ?, ?)";
+        let sql = "INSERT INTO productos (nombre, imagen, categoria, precio) VALUES (?, ?, ?, ?)";
 
         // Le enviamos estos valores a la BBDD
         let [rows] = await connection.query(sql, [name, image, category, price]);
@@ -139,7 +139,7 @@ router.put("/", async (req, res) => {
 
         let sql = `
             UPDATE productos
-            SET name = ?, image = ?, price = ?, category = ?
+            SET nombre = ?, imagen = ?, precio = ?, categoria = ?
             WHERE id = ?
         `;
 
