@@ -12,27 +12,44 @@ import cors from "cors";
 import { loggerUrl, validateId } from "./src/api/middlewares/middlewares.js";
 import { productRoutes } from "./src/api/routes/index.js";
 
+import { __dirname, join } from "./src/api/utils/index.js";
 
-/*===================
-    Middlewares
-=====================
-- Los middlewares son basicamente funciones que se ejecutan entre la peticion req y la respuesta res
 
-- La idea de los middlewares es no repetir instrucciones por cada endpoint
-
-- Estos son middlewares de aplicacion -> se aplican a todas las peticiones
-*/
 app.use(cors()); // Middleware CORS basico que permite todas las solicitudes
 app.use(express.json()); // Middleware para parsear JSON en el body
 // Logger -> Vamos a registrar por consola cada peticion que se produjo
 app.use(loggerUrl);
+
+app.use(express.static(join(__dirname, "src/public"))) //Middleware para servir archivos estaticos
+app.use("/uploads", express.static(join(__dirname, "src/uploads")));
+
+app.set("view engine", "ejs");
+app.set("views", join(__dirname, "src/views"));
+
+
+
 
 /*======================
     Rutas
 ======================*/
 app.use("/api/products", productRoutes)
 
-app.use("/uploads", express.static("./src/uploads"));
+app.get("/dashboard", async(req,res) => {
+    try {
+        const[rows] = await connection.query("SELECT * FROM productos");
+        console.log(rows);
+        
+        res.render("index", {
+            tittle: "Dashboard",
+            about: "Listado de productos",
+            productos: rows
+        })
+        } catch (error) {
+            console.error(error);  
+        }
+});
+
+//app.use("/uploads", express.static("./src/uploads"));
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
