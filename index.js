@@ -16,6 +16,9 @@ import { __dirname, join } from "./src/api/utils/index.js";
 
 import session from "express-session";
 
+/*======================
+    Middleware
+======================*/
 app.use(cors()); // Middleware CORS basico que permite todas las solicitudes
 app.use(express.json()); // Middleware para parsear JSON en el body
 // Logger -> Vamos a registrar por consola cada peticion que se produjo
@@ -24,10 +27,14 @@ app.use(loggerUrl);
 app.use(express.static(join(__dirname, "src/public"))) //Middleware para servir archivos estaticos
 app.use("/uploads", express.static(join(__dirname, "src/uploads")));
 
+
+/*======================
+    Config
+======================*/
 app.set("view engine", "ejs");
 app.set("views", join(__dirname, "src/views"));
 
-/*
+/*Middleware de sesión
 app.use(session({
     secret: session_key,// Esto firma las cookies para evitar manipulacion
     resave: false, // Esto evita guardar la sesion si no hubo cambios
