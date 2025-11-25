@@ -395,6 +395,26 @@ main {
 }
 
 /* Botón de actualizar dentro del form */
+.btn-primario {
+    margin-top: 10px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #0ea5e9;
+    color: #0f172a;
+    cursor: pointer;
+    font-weight: 600;
+    font: inherit;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+    transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+}
+
+.btn-primario:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.3);
+}
+
 #updateFormContainer input[type="submit"] {
     margin-top: 8px;
     align-self: flex-end;
@@ -415,34 +435,30 @@ main {
     transform: translateY(-1px);
 }
 
-/* ====== Layout MODIFICAR: card izq + formulario der ====== */
-
 .modificar-layout {
     max-width: 1100px;
     margin: 32px auto 40px;
     display: flex;
-    justify-content: center;     /* todo centrado en la página */
+    justify-content: center;
     align-items: flex-start;
-    gap: 40px;                   /* espacio entre card y formulario */
+    gap: 40px;
 }
 
 /* Columna izquierda: card del producto */
-.modificar-layout #contenedor-productos {
-    width: 320px;                /* ancho fijo aproximado de la card */
-}
+.modificar-layout #contenedor-productos {width: 320px;}
 
 .modificar-layout #lista-productos {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;     /* card centrada dentro de su columna */
+    justify-content: center;
 }
 
 /* Columna derecha: formulario de actualización */
 .modificar-layout #updateFormContainer {
     flex: 1;
-    margin: 0;                   /* anulamos el margin auto anterior */
-    max-width: 520px;            /* que no se haga gigante */
+    margin: 0;
+    max-width: 520px;
 }
 
 /*=============
