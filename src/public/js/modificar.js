@@ -34,13 +34,15 @@
             console.log(producto);
 
             let htmlProducto = `
-                <li class="li-producto">
-                        <img class="producto-img" src="${producto.imagen}" alt="${producto.nombre}">
-                        <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
-                </li>
-                <li class="li-botonera">
-                    <input type="button" id="updateProduct_button" value="Actualizar producto">
-                </li>
+            <li class="li-producto">
+                <img class="producto-img" src="${producto.imagen}" alt="${producto.nombre}">
+                <h2 class="producto-nombre">${producto.nombre}</h2>
+                <p>Id: ${producto.id}</p>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button type="button" id="updateProduct_button" class="btn-primario">
+                Actualizar producto
+                </button>
+            </li>
             `;
 
             listaProductos.innerHTML = htmlProducto;
@@ -78,6 +80,10 @@
                         <option value="case">Cajas</option>
                         <option value="keyboard">Teclado</option>
                         <option value="motherboard">PlacaMadre</option>
+                        <option value="ram">Ram</option>
+                        <option value="graficas">Graficas</option>
+                        <option value="monitors">Monitores</option>
+                        <option value="processors">Procesadores</option>
                     </select>
 
                     <input type="hidden" name="active" id="activeProd" value="${producto.activo}">

@@ -18,7 +18,7 @@ li {
 ===============*/
 body {
     font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-image: url("../img/Fondo3.0.jpg");
+    background-image: url("/uploads/Fondo3.0.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     background-attachment: fixed;

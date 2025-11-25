@@ -33,11 +33,13 @@
 
             let htmlProducto = `
                 <li class="li-producto">
-                        <img class="producto-img" src="${producto.imagen}" alt="${producto.name}">
-                        <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
-                </li>
-                <li class="li-botonera">
-                    <input type="button" id="deleteProduct_button" value="Eliminar producto">
+                    <img class="producto-img" src="${producto.imagen}" alt="${producto.nombre}">
+                    <h2 class="producto-nombre">${producto.nombre}</h2>
+                    <p>Id: ${producto.id}</p>
+                    <p class="producto-precio">$${producto.precio}</p>
+                    <button type="button" id="deleteProduct_button" class="btn-peligro">
+                        Eliminar producto
+                    </button>
                 </li>
             `;
 

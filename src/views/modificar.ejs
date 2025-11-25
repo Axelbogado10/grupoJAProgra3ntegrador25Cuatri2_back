@@ -1,25 +1,20 @@
 <%- include("partials/head.ejs") %>
 <%- include("partials/nav.ejs") %>
-
-    <main>
-
-
-        <form id="getProduct-form">
-            <label for="idProd">Id del producto</label>
-            <input type="number" name="idProd" id="idProd" required>
-
-            <input type="submit" value="Consultar producto">
-        </form>
-
-        <hr>
+<main>
+    <h1><%= title %></h1>
+    <form id="getProduct-form">
+        <label for="idProd">Id del producto</label>
+        <input type="number" name="idProd" id="idProd" required>
+        <input type="submit" value="Consultar producto">
+    </form>
+    <hr>
+    <div class="modificar-layout">
         <section id="contenedor-productos">
-            <ul id="lista-productos"></ul>
+        <ul id="lista-productos"></ul>
         </section>
 
         <section id="updateFormContainer"></section>
-    </main>
-
-    <script src="/js/modificar.js"></script>
-
-
+    </div>
+</main>
+<script src="/js/modificar.js"></script>
 <%- include("partials/footer.ejs") %>
