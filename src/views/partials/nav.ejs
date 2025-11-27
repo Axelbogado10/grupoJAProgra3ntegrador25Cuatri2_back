@@ -1,16 +1,26 @@
 <header>
-    <nav class="navbar" aria-label="Navegación principal">
-        <div class="navbar__inner">
-        <ul class="navbar__list">
-            <a class="navbar__link navbar__link--logo" href="/">
-            <img src="/uploads/JA-Logo.png" alt="Logo del sitio" class="navbar__logo-inline">
-            </a>
-            <li><a class="navbar__link <%= activeRoute === 'inicio' ? 'is-active' : '' %>" href="/">Inicio</a></li>
-            <li><a class="navbar__link <%= activeRoute === 'consultar' ? 'is-active' : '' %>" href="/consultar">Consultar id</a></li>
-            <li><a class="navbar__link <%= activeRoute === 'crear' ? 'is-active' : '' %>" href="/crear">Crear</a></li>
-            <li><a class="navbar__link <%= activeRoute === 'modificar' ? 'is-active' : '' %>" href="/modificar">Modificar</a></li>
-            <li><a class="navbar__link <%= activeRoute === 'eliminar' ? 'is-active' : '' %>" href="/eliminar">Eliminar</a></li>
-        </ul>
-        </div>
-    </nav>
+<nav class="navbar" aria-label="Navegación principal">
+<div class="navbar__inner">
+    <ul class="navbar__list">
+    <!-- Logo -->
+    <li class="navbar__item navbar__item--logo">
+        <a class="navbar__link navbar__link--logo" href="/">
+        <img src="/uploads/JA-Logo.png" alt="Logo del sitio" class="navbar__logo-inline">
+        </a>
+    </li>
+    <!-- Links principales -->
+    <li class="navbar__item"><a class="navbar__link <%= activeRoute === 'inicio' ? 'is-active' : '' %>" href="/">Inicio</a></li>
+    <li class="navbar__item"><a class="navbar__link <%= activeRoute === 'consultar' ? 'is-active' : '' %>" href="/consultar">Consultar id</a></li>
+    <li class="navbar__item"><a class="navbar__link <%= activeRoute === 'crear' ? 'is-active' : '' %>" href="/crear">Crear</a></li>
+    <li class="navbar__item"><a class="navbar__link <%= activeRoute === 'modificar' ? 'is-active' : '' %>" href="/modificar">Modificar</a></li>
+    <li class="navbar__item"><a class="navbar__link <%= activeRoute === 'eliminar' ? 'is-active' : '' %>" href="/eliminar">Eliminar</a></li>
+    <!-- Cerrar sesión -->
+    <li class="navbar__item navbar__item--logout">
+        <form action="/logout" id="logout" method="POST" class="navbar__logout-form">
+        <button type="submit" class="navbar__link navbar__link--logout">Cerrar sesión</button>
+        </form>
+    </li>
+    </ul>
+</div>
+</nav>
 </header>

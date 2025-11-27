@@ -1,18 +1,16 @@
 /*===============
     header
 ================*/
-ul {padding-left: 0;}
-
+nav ul {display: flex;}
+ul {
+    padding-left: 0;
+    margin: 0;
+}
 nav ul {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
-
-li {
-    list-style-type: none;
-    padding: 6px 20px;
-}
-
+li {list-style-type: none;}
 /*===============
     Fondo
 ===============*/
@@ -124,10 +122,15 @@ body {
     box-shadow: 0 8px 20px rgba(5, 5, 5, 0.35);
 }
 
+.navbar__item {
+    display: flex;
+    align-items: center;
+}
+
 .navbar__inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 4px 20px;
     min-height: 58px;
 }
@@ -138,6 +141,8 @@ body {
     gap: 20px;
     padding: 0;
     margin: 0;
+    justify-content: center; 
+    align-items: center;
 }
 
 .navbar__link {
@@ -160,6 +165,45 @@ body {
 .navbar__link.is-active {
     background: #1e2f40;
     outline: 1px solid #3a5a76;
+}
+.navbar__item--logout {
+    margin-left: auto;
+}
+.navbar__logout-form {
+    margin: 0;
+}
+.navbar__logout-button {
+    border: none;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 14px;
+    color: #cfe3ff;
+    transition: transform .15s ease, background .15s ease;
+}
+.navbar__link--logout {
+    border: none;
+    background: #dc2626;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.navbar__link--logout:hover,
+.navbar__link--logout:focus {
+    background: #b91c1c;
+    box-shadow: 0 0 12px rgba(220, 38, 38, .6);
+    transform: translateY(-1px);
 }
 
 /*===============
@@ -481,4 +525,264 @@ main {
 .btn-peligro:hover {
     filter: brightness(1.1);
     transform: translateY(-1px);
+}
+
+/*=============
+    LogIn
+==============*/
+/*=============
+    LogIn
+==============*/
+
+/* Mensaje de error dentro de la card */
+.error-message {
+    padding: 10px;
+    border: 2px solid #eb99a1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #a94442;
+    background-color: #fdf2f4;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal del login */
+#login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+/* Card del login */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-card h1 {
+    margin: 0 0 4px;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+/* Formulario de login */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#login-form label {
+    font-weight: 500;
+}
+
+#login-form input[type="email"],
+#login-form input[type="password"] {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.35);
+    font: inherit;
+}
+
+/* Botonera de Login + Acceso rápido */
+.login-botonera {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* Botón principal Login (oscuro) */
+#login-form input[type="submit"] {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #020617;
+    color: #f9fafb;
+    cursor: pointer;
+    font-weight: 600;
+    font: inherit;
+    transition: transform .15s ease, filter .15s ease;
+}
+
+#login-form input[type="submit"]:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+}
+
+/* Botón Acceso rápido (clarito) */
+#login-form #acceso-rapido {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #e5e7eb;
+    color: #111827;
+    cursor: pointer;
+    font-weight: 600;
+    font: inherit;
+    transition: transform .15s ease, filter .15s ease;
+}
+
+#login-form #acceso-rapido:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+}
+
+
+/*=============
+    Crear: alta de productos y usuarios
+==============*/
+#alta-container {
+    max-width: 1100px;
+    margin: 32px auto 40px;
+    padding: 0 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center; 
+}
+
+#alta-container .page-title {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Contenedor de las dos columnas */
+.crear-forms {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+/* Wrapper de cada bloque (productos / usuarios) */
+.form-container {
+    flex: 1;
+    min-width: 280px;
+    max-width: 500px;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+.form-container h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+/* Card existente de productos (ya la tenías) */
+#altaProducts-container {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
+}
+
+/* Etiquetas del formulario de productos */
+#altaProducts-container label { font-weight: 400; }
+
+/* Inputs y select productos */
+#altaProducts-container input[type="text"],
+#altaProducts-container input[type="number"],
+#altaProducts-container select {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.35);
+    width: 95%;
+    font: inherit;
+}
+
+/* Botón crear producto */
+#altaProducts-container input[type="submit"] {
+    margin-top: 8px;
+    align-self: flex-end;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #020617;
+    color: #f9fafb;
+    cursor: pointer;
+    font-weight: 600;
+    font: inherit;
+    transition: transform .15s ease, filter .15s ease;
+}
+
+#altaProducts-container input[type="submit"]:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+}
+
+/* Card para el formulario de usuarios, misma onda que productos */
+#altaUsers-container {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
+}
+
+/* Inputs usuarios */
+#altaUsers-container input[type="text"],
+#altaUsers-container input[type="email"],
+#altaUsers-container input[type="password"] {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.35);
+    width: 95%;
+    font: inherit;
+}
+
+/* Botón crear usuario (celeste) */
+#altaUsers-container input[type="submit"] {
+    margin-top: 8px;
+    align-self: flex-end;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #0ea5e9;
+    color: #0f172a;
+    cursor: pointer;
+    font-weight: 600;
+    font: inherit;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+    transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+}
+
+#altaUsers-container input[type="submit"]:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.3);
+}
+
+/* La clase form-alta ahora solo ordena en columna, sin altura fija */
+.form-alta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
 }
