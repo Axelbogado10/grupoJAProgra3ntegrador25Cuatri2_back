@@ -19,7 +19,7 @@ export const insertUser = async (req, res) => {
 
     // Intentamos guardar en la tabla users
     try {
-        const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        const sql = "INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)";
         const [result] = await connection.query(sql, [
             name.trim(),
             email.trim(),
