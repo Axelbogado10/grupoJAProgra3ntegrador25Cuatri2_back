@@ -17,7 +17,7 @@ export const insertUser = async (req, res) => {
     // Hasheamos la contraseña
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Intentamos guardar en la tabla users
+    // Intentamos guardar en la tabla users.
     try {
         const sql = "INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)";
         const [result] = await connection.query(sql, [
