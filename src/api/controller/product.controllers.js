@@ -4,14 +4,12 @@ import ProductModels from "../models/product.models.js"
 export const getALLProducts = async (req, res) =>{
 
     try {
-            
         const [rows] = await ProductModels.selectALLProducts();
         
         res.status(200).json({
             payload: rows,
             message: rows.length === 0 ? "No se encontraron productos" : "Productos encontrados"
         });
-
 
     } catch(error) {
         console.error(error);
@@ -24,13 +22,11 @@ export const getALLProducts = async (req, res) =>{
 
 
 export const getProductById = async ( req, res) => {
-        try {
-
+    try {
         // el :id se extrae con el objeto request -> req.params.id
         let { id } = req.params; // Esto nos permite obtener el valor numerico despues de products /products/2
 
-
-        if(!id || isNaN(Number(id))) {
+        if (!id || isNaN(id)) {
             return res.status(400).json({
                 message: "El id del producto debe ser un numero valido"
             });
@@ -42,7 +38,6 @@ export const getProductById = async ( req, res) => {
 
         // Los ? representan los placeholders, se usan por temas de seguridad para prevenir inyecciones SQL
         const [rows] = await ProductModels.selectProductWhrereId(id); // El id reemplaza nuestro ?
-
 
         // Hacemos la consulta, y tenemos el resultado en la variable rows
         // Optimizacion 2: Comprobamos que existe el producto con ese id
@@ -57,7 +52,6 @@ export const getProductById = async ( req, res) => {
         res.status(200).json({
             payload: rows
         });
-
 
     } catch (error) {
         console.error("Error obteniendo producto con id", error.message);
@@ -89,7 +83,6 @@ export const createProduct = async (req, res) => {
         res.status(201).json({
             message: "Producto creado con exito"
         });
-
 
     } catch (error) {
         console.error("Error interno del servidor");
@@ -134,7 +127,6 @@ export const modifyProduct = async (req, res) => {
             message: "Producto actualizado correctamente"
         });
         
-
     } catch (error) {
         console.error("Error al actualizar el producto: ", error);
 
@@ -150,11 +142,9 @@ export const removeProduct = async (req, res) => {
     try {
         let { id } = req.params;
 
-
         let [result] = await ProductModels.deleteProduct(id)
         console.log(result);
         // affectedRows: 1 -> Nos indica que hubo una fila que fue afectada
-
 
         if(result.affectedRows === 0) {
             return res.status(404).json({
@@ -162,11 +152,9 @@ export const removeProduct = async (req, res) => {
             });
         }
 
-
         return res.status(200).json({
             message: `Producto con id ${id} eliminado correctamente`
         });
-
 
     } catch (error) {
         console.log(`Error al eliminar un producto con id ${id}: `, error);
